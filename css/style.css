@@ -1,0 +1,59 @@
+html {
+  font-size: 62.5%;
+}
+
+.header {
+  background-image: url(../img/todo-bg.jpeg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 25vh;
+  text-align: center;
+  position: relative;
+}
+
+.hero-text {
+  bottom: 1rem;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  position: absolute;
+  text-shadow: 0.1rem 0.1rem 0.1rem #3e3e3e;
+}
+
+.container {
+  width: 80%;
+  background-color: beige;
+  border-radius: 0.5rem;
+  margin: 2rem auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.add-task-input {
+  width: 50%;
+}
+
+.task-list {
+  width: 100%;
+  margin: 2rem 0;
+}
+
+th, td {
+  padding: 1rem;
+}
+
+.done-true {
+  color: grey;
+  font-style: italic;
+  text-decoration: line-through;
+}
+
+.number {
+  width: 5rem;
+  text-align: center;
+}
+
+.footer {
+  text-align: center;
+}
