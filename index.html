@@ -8,6 +8,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<link rel="icon" type="image/png" href="img/checked.png">	
+	<!-- Google fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
 	<!-- Bootstrap -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<!-- Style -->
@@ -25,21 +27,22 @@
 	<main class="container">
 		<input class="add-task-input" type="text" ng-model="task" ng-keyup="searchEnter()" placeholder=" Add a task...">
 		<button class="btn btn-danger btn-xs" ng-click="clearCompleted()">
-			Clear completed <i class="fa fa-trash-o" aria-hidden="true"></i>
+			Clear completed <img src="img/rubbish-bin.png" alt="">
 		</button>
 		<table class="task-list table-bordered">
 			<tbody>
 				<tr class="camper" ng-repeat="oneTask in tasks track by $index">
 					<td class="number">{{$index+1}}</td>
 					<td class="number">
-						<input type="checkbox" ng-model="oneTask.status" ng-click="taskDone(oneTask.status)">
+						<input type="checkbox" aria-checked="{{oneTask.status}}" ng-model="oneTask.status" ng-click="taskDone(oneTask.status)">
 					</td>
 					<td class="name">
 						<span class="done-{{oneTask.status}}" ng-model="oneTask.taskMessage" ng-dblclick="editTask(oneTask.taskMessage)" ng-keydown="enterAgain(oneTask.taskMessage)" contenteditable="false"> {{oneTask.taskMessage}} </span>
 					</td>
 					<td class="number">
 						<span ng-click="removeTask($index)">
-							<i class="fa fa-times" aria-hidden="true"></i>
+							<span class="visuallyHidden">Remove task</span>
+							<img src="img/remove-symbol.png" alt="">
 						</span>
 					</td>
 				</tr>
@@ -52,8 +55,6 @@
 		</p>
 	</footer>
 
-	<!-- Font Awesome -->
-	<script src="https://use.fontawesome.com/736c59a21e.js"></script>
 	<!-- Script -->
 	<script src="js/script.js"></script>
 
