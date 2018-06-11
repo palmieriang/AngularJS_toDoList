@@ -1,6 +1,7 @@
 angular.module('myModule', [])
-.controller('myController', function($scope) {
-
+.controller('myController', function($scope, Task) {
+	// var test = new Task({name: 'this task is using the Task factory', completed: false});
+	// console.log(test);
 	$scope.tasks = [];
 
 	var taskData = localStorage['tasksList'];
