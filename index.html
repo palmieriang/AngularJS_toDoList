@@ -34,10 +34,10 @@
 				<tr class="camper" ng-repeat="oneTask in tasks track by $index">
 					<td class="number">{{$index+1}}</td>
 					<td class="number">
-						<input type="checkbox" aria-checked="{{oneTask.status}}" ng-model="oneTask.status" ng-click="taskDone(oneTask.status)">
+						<input type="checkbox" aria-checked="{{oneTask.status}}" ng-model="oneTask.status" ng-click="oneTask.complete()">
 					</td>
 					<td class="name">
-						<span class="done-{{oneTask.status}}" ng-model="oneTask.taskMessage" ng-dblclick="editTask(oneTask.taskMessage)" ng-keydown="enterAgain(oneTask.taskMessage)" contenteditable="false"> {{oneTask.taskMessage}} </span>
+						<span class="done-{{oneTask.status}}" ng-model="oneTask.name" ng-dblclick="editTask(oneTask.name)" ng-keydown="enterAgain(oneTask.name)" contenteditable="false"> {{oneTask.name}} </span>
 					</td>
 					<td class="number">
 						<span ng-click="removeTask($index)">
@@ -58,6 +58,7 @@
 	<!-- Script -->
 	<script src="js/script.js"></script>
 	<script src="js/task.js"></script>
+	<script src="js/taskRepo.js"></script>
 	
 </body>
 </html>

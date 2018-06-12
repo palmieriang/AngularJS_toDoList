@@ -1,7 +1,5 @@
 angular.module('myModule', [])
-.controller('myController', function($scope, Task) {
-	// var test = new Task({name: 'this task is using the Task factory', completed: false});
-	// console.log(test);
+.controller('myController', function($scope, Task, TaskRepository) {
 	$scope.tasks = [];
 
 	var taskData = localStorage['tasksList'];
@@ -17,30 +15,34 @@ angular.module('myModule', [])
 	};
 
 	$scope.addTask = function() {
-		$scope.tasks.push({'taskMessage': $scope.task, 'status': false});
+		let newTask = new Task({name: $scope.task, status: false});
+		$scope.tasks.push(newTask);
 		console.log($scope.tasks);
-		$scope.task = ' ';
-		saveLocal($scope.tasks);
+		$scope.task = '';
+		// saveLocal($scope.tasks);
 	};
 
 	$scope.editTask = function(msg) {
 
+		console.log(Task);
+		console.log(this);
+		
 		for(i=0; i<$scope.tasks.length; i++) {
 			if($scope.tasks[i].taskMessage == msg) {
 				$scope.tasks[i].taskMessage = event.target.innerText;
 			}
 		}
 
-		saveLocal($scope.tasks);
+		// saveLocal($scope.tasks);
 
 		event.target.contentEditable = event.target.contentEditable == "false" ? "true" : "false";
 	};
 
-	$scope.taskDone = function(status) {
-		if($scope.tasks.status != status) {
-			saveLocal($scope.tasks);
-		}
-	}
+	// $scope.taskDone = function(status) {
+	// 	if($scope.tasks.status != status) {
+	// 		saveLocal($scope.tasks);
+	// 	}
+	// }
 
 	$scope.enterAgain = function(msg) {
 		if(event.which == 13 && msg != '') {
@@ -50,14 +52,14 @@ angular.module('myModule', [])
 
 	$scope.removeTask = function(index) {
 		$scope.tasks.splice(index,1);
-		saveLocal($scope.tasks);
+		// saveLocal($scope.tasks);
 	};
 
 	$scope.clearCompleted = function() {
 		$scope.tasks = $scope.tasks.filter(function(item) {
 			return !item.status;
 		})
-		saveLocal($scope.tasks);
+		// saveLocal($scope.tasks);
 	}
 
 	function saveLocal(tasks) {

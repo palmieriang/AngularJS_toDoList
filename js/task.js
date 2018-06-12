@@ -1,24 +1,21 @@
+// Constructor pattern
 (function() {
     angular.module('myModule')
 
-    .factory('Task', function() {
+    .factory('Task', function(TaskRepository) {
         var Task = function(data) {
             this.name = data.name;
-            this.completed = data.completed;
+            this.status = data.status;
         }
 
         Task.prototype.complete = function() {
             console.log('completing task: ' + this.name);
-            this.completed = true;
-            // this.save();
+            this.status = this.status;
+            this.save();
         };
 
         Task.prototype.save = function() {
-            console.log('saving task: ' + this.name);
-        };
-
-        Task.prototype.modify = function(name) {
-            this.name = name;
+            TaskRepository.save(this);
         };
 
         return Task;
