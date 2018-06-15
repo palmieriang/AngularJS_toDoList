@@ -22,21 +22,20 @@ angular.module('myModule', [])
 		// saveLocal($scope.tasks);
 	};
 
-	$scope.editTask = function(msg) {
+	// $scope.editTask = function(msg) {
 
 		console.log(Task);
-		console.log(this);
-		
-		for(i=0; i<$scope.tasks.length; i++) {
-			if($scope.tasks[i].taskMessage == msg) {
-				$scope.tasks[i].taskMessage = event.target.innerText;
-			}
-		}
 
-		// saveLocal($scope.tasks);
+	// 	for(i=0; i<$scope.tasks.length; i++) {
+	// 		if($scope.tasks[i].taskMessage == msg) {
+	// 			$scope.tasks[i].taskMessage = event.target.innerText;
+	// 		}
+	// 	}
 
-		event.target.contentEditable = event.target.contentEditable == "false" ? "true" : "false";
-	};
+	// 	// saveLocal($scope.tasks);
+
+	// 	event.target.contentEditable = event.target.contentEditable == "false" ? "true" : "false";
+	// };
 
 	// $scope.taskDone = function(status) {
 	// 	if($scope.tasks.status != status) {
@@ -44,11 +43,11 @@ angular.module('myModule', [])
 	// 	}
 	// }
 
-	$scope.enterAgain = function(msg) {
-		if(event.which == 13 && msg != '') {
-			$scope.editTask(msg);
-		};
-	};
+	// $scope.enterAgain = function(msg) {
+	// 	if(event.which == 13 && msg != '') {
+	// 		$scope.editTask(msg);
+	// 	};
+	// };
 
 	$scope.removeTask = function(index) {
 		$scope.tasks.splice(index,1);

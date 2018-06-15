@@ -37,7 +37,13 @@
 						<input type="checkbox" aria-checked="{{oneTask.status}}" ng-model="oneTask.status" ng-click="oneTask.complete()">
 					</td>
 					<td class="name">
-						<span class="done-{{oneTask.status}}" ng-model="oneTask.name" ng-dblclick="editTask(oneTask.name)" ng-keydown="enterAgain(oneTask.name)" contenteditable="false"> {{oneTask.name}} </span>
+						<span class="done-{{oneTask.status}}" ng-model="oneTask.name" ng-dblclick="oneTask.makeEditable()" ng-keydown="oneTask.enterAgain($event)" contenteditable="{{oneTask.editable}}"> {{oneTask.name}} </span>
+
+						<!-- <span class="done-{{oneTask.status}}" ng-show="!oneTask.editable" ng-model="oneTask.name" ng-dblclick="oneTask.makeEditable()" contenteditable="{{oneTask.editable}}">1 + {{oneTask.name}} </span>
+						<span class="done-{{oneTask.status}}" ng-show="oneTask.editable" ng-model="newName" ng-keydown="oneTask.enterAgain($event)" contenteditable="{{oneTask.editable}}">2 + {{oneTask.name}} + new: {{newName}} </span>
+						<span>{{newName}}</span> -->
+
+
 					</td>
 					<td class="number">
 						<span ng-click="removeTask($index)">
